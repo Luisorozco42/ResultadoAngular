@@ -1,0 +1,40 @@
+<form [formGroup]="resultadoform" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="examen">Examen:</label>
+        <select class="form-control" id="idExamen" formControlName="idExamen" name="idExamen" required>
+            <option value="">Seleccionar...</option>
+            <option *ngFor="let examen of examenes" value="{{examen.idExamen}}">{{examen.descripcionCorta}} {{ordenEnviada.idOrden}}</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="orden">N_Orden:</label>
+        <select class="form-control" id="idOrden" [(ngModel)]="ordenEnviada.idOrden" formControlName="idOrden" name="idOrden" required>
+            <option value="">Seleccionar...</option>
+            <option *ngFor="let orden of ordenes" value="{{orden.idOrden}}">{{orden.numeroOrden}}</option>
+        </select>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="resultado">Resultado:</label>
+        <input type="text" id="resultado" name="resultado" formControlName="resultado" class="form-control" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="observaciones">Observaciones:</label>
+        <input type="text" id="observaciones" name="observaciones" formControlName="observaciones" class="form-control" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="procesado">Procesado:</label>
+        <input type="text" id="procesado" name="procesado" formControlName="procesado" class="form-control" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="valida">Valida:</label>
+        <input type="text" id="validado" name="validado" formControlName="validado" class="form-control" required>
+    </div>
+    <br>
+    
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

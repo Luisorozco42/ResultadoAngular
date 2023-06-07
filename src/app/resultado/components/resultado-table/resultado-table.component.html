@@ -1,0 +1,40 @@
+<div *ngIf="resultados.length === 0; else tablaResultados" class="alert alert-warning">
+    No hay resultados que mostrar
+</div>
+<ng-template #tablaResultados>
+    <table class="table table-bordered table-hover table-secondary" style="border-color: black">
+        <thead>
+            <tr>
+                <th class="visually-hidden">#</th>
+                <th>Examen</th>
+                <th>Orden</th>
+                <th>Resultado</th>
+                <th>Observaciones</th>
+                <th>Procesado</th>
+                <th>Fecha Pro</th>
+                <th>IUsuario Pro</th>
+                <th>Valida</th>
+                <th>Fecha val</th>
+                <th>idUsuarioVal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resultado of resultados">
+                <td class="visually-hidden">{{resultado.idResultados}}</td>
+                <td>{{modificarDatoE(resultado)}}</td>
+                <td>{{modificarDatoO(resultado)}}</td>
+                <td>{{resultado.resultado}}</td>
+                <td>{{resultado.observaciones}}</td>
+                <td>{{resultado.procesado}}</td>
+                <td>{{resultado.fechaProcesa}}</td>
+                <td>{{modificarDatoUP(resultado)}}</td>
+                <td>{{resultado.validado}}</td>
+                <td>{{resultado.fechaValida}}</td>
+                <td>{{modificarDatoUV(resultado)}}</td>
+                <td><a href="#" (click)="eliminarResultadoPorId(resultado.idResultados)">Borrar</a></td>
+            </tr>
+        </tbody>
+
+    </table>
+</ng-template>

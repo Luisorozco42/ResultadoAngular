@@ -1,0 +1,27 @@
+<h2>Ordenes sin resultados</h2>
+<hr>
+<div class="row">
+    <div class="col text-center">
+        <div><p><strong>Filtrar por tipo de orden:</strong> </p></div>
+        <button class="btn mx-2"
+        [ngClass]="{'btn-outline-primary' :seleccionTO===tipo}"
+        *ngFor="let tipo of tipoOrdenes" (click)="buscarPorTipoOrden(tipo)"
+        style="border-color: darkblue">{{modificarTipoOrden(tipo)}}</button>
+        <hr>
+    </div>
+    
+    <div class="row">
+        <div class="col text-center">
+            <div><p><strong>Filtrar area de laboratorio:</strong> </p></div>
+            <button class="btn mx-2" [ngClass]="{'btn-outline-primary' :seleccionAL===area}"
+                *ngFor="let area of areaLab" (click)="filtrarPorIdOrden(area)" style="border-color: darkblue">
+                {{modificarAreaLab(area)}}</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <orden-table [ordenes]="ordenes" [empleados]="empleados" [resultados]="resultados"></orden-table>
+        </div>
+    </div>
+</div>

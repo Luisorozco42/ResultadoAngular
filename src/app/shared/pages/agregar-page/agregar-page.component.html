@@ -1,0 +1,15 @@
+<ng-template #loading>
+    <div class="alert alert-infor text-center">
+        Espere plocs
+    </div>
+</ng-template>
+<div *ngIf="orden; else loading">
+    <h2>Crear el resultado de la orden: {{orden.numeroOrden}}</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <shared-agregar-form [ordenes]="ordenes" [examenes]="examenes"
+                [resultados]="resultados" [ordenEnviada]="orden"></shared-agregar-form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div *ngIf="ordenes.length === 0; else tablaOrdenes" class="alert alert-warning">
+    No hay resultados que mostrar
+</div>
+<ng-template #tablaOrdenes>
+    <table class="table table-bordered table-hover table-secondary" style="border-color: black">
+        <thead>
+            <tr>
+                <th class="visually-hidden">#</th>
+                <th>Número de orden</th>
+                <th>Empleado</th>
+                <th>idPaciente</th>
+                <th>idTipoServicio</th>
+                <th>Tipo Orden</th>
+                <th>Asistencia</th>
+                <th>Observaciones</th>
+                <th>Fecha Orden</th>
+                <th>Activo</th>
+                <th>Fecha Impreso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let orden of ordenesSinResultado">
+                <td class="visually-hidden">{{orden.idOrden}}</td>
+                <td>{{orden.numeroOrden}}</td>
+                <td>{{modificarDatoE(orden)}}</td>
+                <td>{{orden.idPaciente}}</td>
+                <td>{{orden.idTipoServicio}}</td>
+                <td>{{modificarDatosTO(orden)}}</td>
+                <td>{{orden.asistencia}}</td>
+                <td>{{orden.observaciones}}</td>
+                <td>{{orden.fechaOrden}}</td>
+                <td>{{orden.activo}}</td>
+                <td>{{orden.fechaImprime}}</td>
+                <td><a [routerLink]="['/shared/agregar-page/', orden.idOrden]">Crear Resultado</a></td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
